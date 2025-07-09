@@ -13,7 +13,6 @@ class RestaurantApp {
         this.initAnimations();
         this.initBackToTop();
         this.initMobileMenu();
-        this.initStats();
     }
 
     setupEventListeners() {
@@ -116,70 +115,6 @@ class RestaurantApp {
         }
     }
 
-    // Animated Statistics Counter
-    initStats() {
-        const statNumbers = document.querySelectorAll('.stat-number');
-        const observerOptions = {
-            threshold: 0.5,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    this.animateCounter(entry.target);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        statNumbers.forEach(stat => {
-            observer.observe(stat);
-        });
-    }
-
-    animateCounter(element) {
-        const target = parseInt(element.getAttribute('data-count'));
-        
-        // Check if target is valid number
-        if (isNaN(target) || target <= 0) {
-            // Set default values for gallery stats
-            const statLabel = element.nextElementSibling?.textContent || '';
-            let defaultValue = 0;
-            
-            if (statLabel.includes('Fotoğraf')) defaultValue = 500;
-            else if (statLabel.includes('Müşteri Puanı')) defaultValue = 4.8;
-            else if (statLabel.includes('Deneyimli Şef')) defaultValue = 15;
-            else if (statLabel.includes('Ödül')) defaultValue = 3;
-            else if (statLabel.includes('Mutlu Müşteri')) defaultValue = 1000;
-            else if (statLabel.includes('Çeşit Yemek')) defaultValue = 25;
-            else if (statLabel.includes('Yıl Tecrübe')) defaultValue = 5;
-            else if (statLabel.includes('Saat Hizmet')) defaultValue = 24;
-            
-            element.setAttribute('data-count', defaultValue);
-            element.textContent = defaultValue;
-            return;
-        }
-
-        const duration = 2000; // 2 seconds
-        const increment = target / (duration / 16); // 60fps
-        let current = 0;
-
-        const timer = setInterval(() => {
-            current += increment;
-            if (current >= target) {
-                current = target;
-                clearInterval(timer);
-            }
-            
-            // Handle decimal numbers (like ratings)
-            if (target < 10 && target % 1 !== 0) {
-                element.textContent = current.toFixed(1);
-            } else {
-                element.textContent = Math.floor(current);
-            }
-        }, 16);
-    }
 
     // Animation Triggers
     initAnimations() {
@@ -713,7 +648,7 @@ Bu mesaj Nizamiye Pide ve Lahmacun web sitesi iletişim formundan gönderilmişt
         }
     }
 
-    // Lazy Loading for Images
+    // Enhanced Image Loading Optimization
     initLazyLoading() {
         const images = document.querySelectorAll('img[loading="lazy"]');
         
@@ -722,15 +657,63 @@ Bu mesaj Nizamiye Pide ve Lahmacun web sitesi iletişim formundan gönderilmişt
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         const img = entry.target;
-                        img.src = img.dataset.src || img.src;
-                        img.classList.remove('lazy');
+                        this.optimizeImageLoading(img);
                         imageObserver.unobserve(img);
                     }
                 });
+            }, {
+                rootMargin: '50px 0px', // Start loading 50px before image enters viewport
+                threshold: 0.01
             });
 
             images.forEach(img => imageObserver.observe(img));
+        } else {
+            // Fallback for browsers without IntersectionObserver
+            images.forEach(img => this.optimizeImageLoading(img));
         }
+    }
+
+    // Image Loading Optimization
+    optimizeImageLoading(img) {
+        // Create a new image element for preloading
+        const imageLoader = new Image();
+        
+        // Add loading event listeners
+        imageLoader.onload = () => {
+            img.src = imageLoader.src;
+            img.classList.add('loaded');
+            img.style.opacity = '1';
+        };
+        
+        imageLoader.onerror = () => {
+            console.warn('Failed to load image:', img.src);
+            img.style.opacity = '1'; // Show broken image
+        };
+        
+        // Start loading
+        imageLoader.src = img.dataset.src || img.src;
+        
+        // Add loading placeholder
+        if (!img.style.opacity) {
+            img.style.opacity = '0';
+        }
+    }
+
+    // Preload Critical Images
+    preloadCriticalImages() {
+        const criticalImages = [
+            'images/lahmacun.jpg',
+            'images/karisik_pide.jpg', 
+            'images/kofte.jpg'
+        ];
+        
+        criticalImages.forEach(src => {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.as = 'image';
+            link.href = src;
+            document.head.appendChild(link);
+        });
     }
 
     // Performance Monitoring
