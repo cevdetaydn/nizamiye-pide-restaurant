@@ -489,10 +489,80 @@ class RestaurantApp {
                 return;
             }
 
-            // Simulate form submission
-            this.showNotification('Mesajınız başarıyla gönderildi!', 'success');
-            contactForm.reset();
+            // Show loading state
+            const submitBtn = contactForm.querySelector('.submit-btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<span class="btn-icon">⏳</span><span class="btn-text">Gönderiliyor...</span>';
+            submitBtn.disabled = true;
+
+            // Send email using EmailJS
+            this.sendContactEmail(data)
+                .then(() => {
+                    this.showNotification('Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.', 'success');
+                    contactForm.reset();
+                })
+                .catch((error) => {
+                    console.error('Email gönderme hatası:', error);
+                    this.showNotification('Mesaj gönderilirken bir hata oluştu. Lütfen telefon ile iletişime geçin.', 'error');
+                })
+                .finally(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                });
         });
+    }
+
+    // Send contact email using EmailJS
+    async sendContactEmail(formData) {
+        // EmailJS configuration
+        const serviceID = 'service_nizamiye'; // EmailJS service ID
+        const templateID = 'template_contact'; // EmailJS template ID
+        const publicKey = 'YOUR_PUBLIC_KEY'; // EmailJS public key
+
+        const templateParams = {
+            from_name: formData.name,
+            from_email: formData.email || 'Belirtilmemiş',
+            from_phone: formData.phone,
+            subject: formData.subject,
+            message: formData.message,
+            to_email: 'nizamiyerestoran@gmail.com' // Mesajların gideceği email adresi
+        };
+
+        try {
+            // EmailJS kullanarak email gönder
+            if (typeof emailjs !== 'undefined') {
+                const response = await emailjs.send(serviceID, templateID, templateParams, publicKey);
+                return response;
+            } else {
+                // EmailJS yüklenmemişse alternatif yöntem: mailto
+                this.sendEmailViaMailto(formData);
+                return Promise.resolve();
+            }
+        } catch (error) {
+            // Hata durumunda alternatif yöntem
+            this.sendEmailViaMailto(formData);
+            throw error;
+        }
+    }
+
+    // Alternative method: Open default email client
+    sendEmailViaMailto(formData) {
+        const subject = encodeURIComponent(`İletişim Formu: ${formData.subject}`);
+        const body = encodeURIComponent(`
+Ad Soyad: ${formData.name}
+Telefon: ${formData.phone}
+E-posta: ${formData.email || 'Belirtilmemiş'}
+Konu: ${formData.subject}
+
+Mesaj:
+${formData.message}
+
+---
+Bu mesaj Nizamiye Pide ve Lahmacun web sitesi iletişim formundan gönderilmiştir.
+        `);
+
+        const mailtoLink = `mailto:nizamiyerestoran@gmail.com?subject=${subject}&body=${body}`;
+        window.open(mailtoLink, '_blank');
     }
 
     // FAQ Accordion
