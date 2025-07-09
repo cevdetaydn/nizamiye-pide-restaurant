@@ -710,10 +710,6 @@ body {
         font-size: var(--font-size-lg);
     }
     
-    .nav-list {
-        display: none;
-    }
-    
     .mobile-menu-toggle {
         display: flex;
     }
