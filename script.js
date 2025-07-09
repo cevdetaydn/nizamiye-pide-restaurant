@@ -214,23 +214,62 @@ class RestaurantApp {
         const cartItems = document.getElementById('cart-items');
         const totalPrice = document.getElementById('total-price');
         const orderBtn = document.getElementById('order-btn');
+        const cartEmpty = document.getElementById('cart-empty');
+        const cartCount = document.querySelector('.cart-count');
 
         if (!cartItems || !totalPrice) return;
 
         cartItems.innerHTML = '';
         let total = 0;
+        let itemCount = 0;
 
         this.cart.forEach((item, name) => {
             const itemTotal = item.price * item.quantity;
             total += itemTotal;
+            itemCount += item.quantity;
 
             const li = document.createElement('li');
+            li.className = 'cart-item';
             li.innerHTML = `
-                <span>${name} x${item.quantity}</span>
-                <span>${itemTotal.toFixed(2)} TL</span>
+                <div class="cart-item-info">
+                    <span class="cart-item-name">${name}</span>
+                    <span class="cart-item-price">${itemTotal.toFixed(2)} TL</span>
+                </div>
+                <div class="cart-item-controls">
+                    <span class="cart-item-quantity">x${item.quantity}</span>
+                    <button class="remove-item-btn" data-name="${name}" title="Ürünü Sil">
+                        <span>🗑️</span>
+                    </button>
+                </div>
             `;
             cartItems.appendChild(li);
         });
+
+        // Add event listeners to remove buttons
+        const removeButtons = cartItems.querySelectorAll('.remove-item-btn');
+        removeButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const itemName = btn.getAttribute('data-name');
+                this.removeItemCompletely(itemName);
+            });
+        });
+
+        // Update cart count
+        if (cartCount) {
+            cartCount.textContent = `${itemCount} ürün`;
+        }
+
+        // Show/hide empty cart message
+        if (cartEmpty) {
+            if (this.cart.size === 0) {
+                cartEmpty.style.display = 'block';
+                cartItems.style.display = 'none';
+            } else {
+                cartEmpty.style.display = 'none';
+                cartItems.style.display = 'block';
+            }
+        }
 
         totalPrice.textContent = `Toplam: ${total.toFixed(2)} TL`;
 
@@ -244,6 +283,26 @@ class RestaurantApp {
                 orderBtn.style.opacity = '0.6';
                 orderBtn.style.cursor = 'not-allowed';
             }
+        }
+    }
+
+    // Completely remove item from cart
+    removeItemCompletely(name) {
+        if (this.cart.has(name)) {
+            this.cart.delete(name);
+            this.updateCartDisplay();
+            this.showNotification(`${name} sepetten çıkarıldı!`, 'warning');
+            
+            // Reset quantity display in menu
+            const quantityControls = document.querySelectorAll('.quantity-controls');
+            quantityControls.forEach(control => {
+                if (control.getAttribute('data-name') === name) {
+                    const quantityValue = control.querySelector('.quantity-value');
+                    if (quantityValue) {
+                        quantityValue.textContent = '0';
+                    }
+                }
+            });
         }
     }
 
@@ -265,7 +324,7 @@ class RestaurantApp {
 
         message += `%0AToplam: ${total.toFixed(2)} TL%0A%0ATeşekkürler!`;
 
-        const whatsappUrl = `https://wa.me/905555555555?text=${message}`;
+        const whatsappUrl = `https://wa.me/905305858228?text=${message}`;
         window.open(whatsappUrl, '_blank');
     }
 
