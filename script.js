@@ -140,6 +140,27 @@ class RestaurantApp {
 
     animateCounter(element) {
         const target = parseInt(element.getAttribute('data-count'));
+        
+        // Check if target is valid number
+        if (isNaN(target) || target <= 0) {
+            // Set default values for gallery stats
+            const statLabel = element.nextElementSibling?.textContent || '';
+            let defaultValue = 0;
+            
+            if (statLabel.includes('Fotoğraf')) defaultValue = 500;
+            else if (statLabel.includes('Müşteri Puanı')) defaultValue = 4.8;
+            else if (statLabel.includes('Deneyimli Şef')) defaultValue = 15;
+            else if (statLabel.includes('Ödül')) defaultValue = 3;
+            else if (statLabel.includes('Mutlu Müşteri')) defaultValue = 1000;
+            else if (statLabel.includes('Çeşit Yemek')) defaultValue = 25;
+            else if (statLabel.includes('Yıl Tecrübe')) defaultValue = 5;
+            else if (statLabel.includes('Saat Hizmet')) defaultValue = 24;
+            
+            element.setAttribute('data-count', defaultValue);
+            element.textContent = defaultValue;
+            return;
+        }
+
         const duration = 2000; // 2 seconds
         const increment = target / (duration / 16); // 60fps
         let current = 0;
@@ -150,7 +171,13 @@ class RestaurantApp {
                 current = target;
                 clearInterval(timer);
             }
-            element.textContent = Math.floor(current);
+            
+            // Handle decimal numbers (like ratings)
+            if (target < 10 && target % 1 !== 0) {
+                element.textContent = current.toFixed(1);
+            } else {
+                element.textContent = Math.floor(current);
+            }
         }, 16);
     }
 
@@ -470,7 +497,16 @@ class RestaurantApp {
     // Contact Form Handler
     initContactForm() {
         const contactForm = document.getElementById('contact-form');
+        const subjectSelect = document.getElementById('subject');
+        
         if (!contactForm) return;
+
+        // Fix dropdown selection issue
+        if (subjectSelect) {
+            subjectSelect.addEventListener('change', function() {
+                this.style.color = this.value ? '#333' : '#999';
+            });
+        }
 
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -481,6 +517,11 @@ class RestaurantApp {
             // Basic validation
             if (!data.name || !data.phone || !data.subject || !data.message) {
                 this.showNotification('Lütfen zorunlu alanları doldurun!', 'error');
+                return;
+            }
+
+            if (data.subject === '') {
+                this.showNotification('Lütfen bir konu seçin!', 'error');
                 return;
             }
 
@@ -500,6 +541,9 @@ class RestaurantApp {
                 .then(() => {
                     this.showNotification('Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.', 'success');
                     contactForm.reset();
+                    if (subjectSelect) {
+                        subjectSelect.style.color = '#999';
+                    }
                 })
                 .catch((error) => {
                     console.error('Email gönderme hatası:', error);
