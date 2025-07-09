@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nizamiye Pide ve Lahmacun menüsü - Pide, lahmacun, köfte ve içecek çeşitleri. Online sipariş verin.">
+    <meta name="keywords" content="pide menü, lahmacun fiyat, köfte sipariş, online menü">
+    <title>Menü - Nizamiye Pide ve Lahmacun</title>
+    <link rel="stylesheet" href="new-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loader"></div>
+        <p>Menü yükleniyor...</p>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>NİZAMİYE PİDE VE LAHMACUN</h1>
+                <span class="tagline">Lezzetin Adresi</span>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Ana Sayfa</a></li>
+                    <li><a href="menu.html" class="nav-link active">Menü</a></li>
+                    <li><a href="gallery.html" class="nav-link">Galeri</a></li>
+                    <li><a href="contact.html" class="nav-link">İletişim</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Menu Hero -->
+    <section class="menu-hero">
+        <div class="container">
+            <div class="menu-hero-content">
+                <h1>Lezzetli Menümüz</h1>
+                <p>Taze malzemelerle hazırlanan özel yemeklerimizi keşfedin</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Content -->
+    <main class="menu-main">
+        <div class="container">
+            <div class="menu-layout">
+                <!-- Menu Categories -->
+                <div class="menu-content">
+                    <!-- Food Section -->
+                    <section class="menu-section" data-aos="fade-up">
+                        <div class="section-header">
+                            <h2 class="section-title">🍽️ Yiyecekler</h2>
+                            <p class="section-subtitle">Geleneksel lezzetlerimiz</p>
+                        </div>
+                        <div class="menu-grid">
+                            <div class="menu-item" data-aos="fade-up" data-aos-delay="100">
+                                <div class="item-image">
+                                    <img src="images/lahmacun.jpg" alt="Lahmacun" loading="lazy">
+                                    <div class="item-badge">Popüler</div>
+                                </div>
+                                <div class="item-content">
+                                    <h3 class="item-name">Lahmacun</h3>
+                                    <p class="item-description">İnce hamur üzerine özel baharatlarla hazırlanan kıyma</p>
+                                    <div class="item-footer">
+                                        <span class="item-price">25 TL</span>
+                                        <div class="quantity-controls" data-name="Lahmacun" data-price="25">
+                                            <button class="decrease-btn" aria-label="Azalt">-</button>
+                                            <span class="quantity-value">0</span>
+                                            <button class="increase-btn" aria-label="Arttır">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="menu-item" data-aos="fade-up" data-aos-delay="150">
+                                <div class="item-image">
+                                    <img src="images/kofte.jpg" alt="Köfte" loading="lazy">
+                                </div>
+                                <div class="item-content">
+                                    <h3 class="item-name">Köfte</h3>
+                                    <p class="item-description">Taze kıyma ile hazırlanan nefis köftelerimiz</p>
+                                    <div class="item-footer">
+                                        <span class="item-price">30 TL</span>
+                                        <div class="quantity-controls" data-name="Köfte" data-price="30">
+                                            <button class="decrease-btn" aria-label="Azalt">-</button>
+                                            <span class="quantity-value">0</span>
+                                            <button class="increase-btn" aria-label="Arttır">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="menu-item" data-aos="fade-up" data-aos-delay="200">
+                                <div class="item-image">
+                                    <img src="images/pizza.jpg" alt="Pizza" loading="lazy">
+                                </div>
+                                <div class="item-content">
+                                    <h3 class="item-name">Pizza</h3>
+                                    <p class="item-description">İtalyan usulü hazırlanan özel pizzalarımız</p>
+                                    <div class="item-footer">
+                                        <span class="item-price">40 TL</span>
+                                        <div class="quantity-controls" data-name="Pizza" data-price="40">
+                                            <button class="decrease-btn" aria-label="Azalt">-</button>
+                                            <span class="quantity-value">0</span>
+                                            <button class="increase-btn" aria-label="Arttır">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="menu-item" data-aos="fade-up" data-aos-delay="250">
+                                <div class="item-image">
+                                    <img src="images/karisik_pide.jpg" alt="Karışık Pide" loading="lazy">
+                                    <div class="item-badge">Şef Önerisi</div>
+                                </div>
+                                <div class="item-content">
+                                    <h3 class="item-name">Karışık Pide</h3>
+                                    <p class="item-description">Kaşar, sucuk ve kıyma ile hazırlanan özel pide</p>
+                                    <div class="item-footer">
+                                        <span class="item-price">40 TL</span>
+                                        <div class="quantity-controls" data-name="Karışık Pide" data-price="40">
+                                            <button class="decrease-btn" aria-label="Azalt">-</button>
+                                            <span class="quantity-value">0</span>
+                                            <button class="increase-btn" aria-label="Arttır">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="menu-item" data-aos="fade-up" data-aos-delay="300">
+                                <div class="item-image">
+                                    <img src="images/kasarli_pide.jpg" alt="Kaşarlı Pide" loading="lazy">
+                                </div>
+                                <div class="item-content">
+                                    <h3 class="item-name">Kaşarlı Pide</h3>
+                                    <p class="item-description">Taze kaşar peyniri ile hazırlanan klasik pide</p>
+                                    <div class="item-footer">
+                                        <span class="item-price">38 TL</span>
+                                        <div class="quantity-controls" data-name="Kaşarlı Pide" data-price="38">
+                                            <button class="decrease-btn" aria-label="Azalt">-</button>
+                                            <span class="quantity-value">0</span>
+                                            <button class="increase-btn" aria-label="Arttır">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="menu-item" data-aos="fade-up" data-aos-delay="350">
+                                <div class="item-image">
+                                    <img src="images/kavurmali_pide.jpg" alt="Kavurmalı Pide" loading="lazy">
+                                </div>
+                                <div class="item-content">
+                                    <h3 class="item-name">Kavurmalı Pide</h3>
+                                    <p class="item-description">Özel kavurma ile hazırlanan geleneksel lezzet</p>
+                                    <div class="item-footer">
+                                        <span class="item-price">45 TL</span>
+                                        <div class="quantity-controls" data-name="Kavurmalı Pide" data-price="45">
+                                            <button class="decrease-btn" aria-label="Azalt">-</button>
+                                            <span class="quantity-value">0</span>
+                                            <button class="increase-btn" aria-label="Arttır">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="menu-item" data-aos="fade-up" data-aos-delay="400">
+                                <div class="item-image">
+                                    <img src="images/kiymali_kasarli_pide.jpg" alt="Kıymalı Kaşarlı Pide" loading="lazy">
+                                </div>
+                                <div class="item-content">
+                                    <h3 class="item-name">Kıymalı Kaşarlı Pide</h3>
+                                    <p class="item-description">Kıyma ve kaşar peyniri ile hazırlanan özel pide</p>
+                                    <div class="item-footer">
+                                        <span class="item-price">50 TL</span>
+                                        <div class="quantity-controls" data-name="Kıymalı Kaşarlı Pide" data-price="50">
+                                            <button class="decrease-btn" aria-label="Azalt">-</button>
+                                            <span class="quantity-value">0</span>
+                                            <button class="increase-btn" aria-label="Arttır">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="menu-item" data-aos="fade-up" data-aos-delay="450">
+                                <div class="item-image">
+                                    <img src="images/yagli_pide.jpg" alt="Yağlı Pide" loading="lazy">
+                                </div>
+                                <div class="item-content">
+                                    <h3 class="item-name">Yağlı Pide</h3>
+                                    <p class="item-description">Geleneksel yağlı pide tarifi</p>
+                                    <div class="item-footer">
+                                        <span class="item-price">30 TL</span>
+                                        <div class="quantity-controls" data-name="Yağlı Pide" data-price="30">
+                                            <button class="decrease-btn" aria-label="Azalt">-</button>
+                                            <span class="quantity-value">0</span>
+                                            <button class="increase-btn" aria-label="Arttır">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Drinks Section -->
+                    <section class="menu-section" data-aos="fade-up">
+                        <div class="section-header">
+                            <h2 class="section-title">🥤 İçecekler</h2>
+                            <p class="section-subtitle">Serinletici içeceklerimiz</p>
+                        </div>
+                        <div class="menu-grid drinks-grid">
+                            <div class="menu-item" data-aos="fade-up" data-aos-delay="100">
+                                <div class="item-image">
+                                    <img src="images/ayran.jpg" alt="Ayran Büyük" loading="lazy">
+                                </div>
+                                <div class="item-content">
+                                    <h3 class="item-name">Ayran (Büyük)</h3>
+                                    <p class="item-description">Taze yoğurttan hazırlanan geleneksel ayran</p>
+                                    <div class="item-footer">
+                                        <span class="item-price">10 TL</span>
+                                        <div class="quantity-controls" data-name="Ayran (Büyük)" data-price="10">
+                                            <button class="decrease-btn" aria-label="Azalt">-</button>
+                                            <span class="quantity-value">0</span>
+                                            <button class="increase-btn" aria-label="Arttır">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="menu-item" data-aos="fade-up" data-aos-delay="150">
+                                <div class="item-image">
+                                    <img src="images/ayran.jpg" alt="Ayran Küçük" loading="lazy">
+                                </div>
+                                <div class="item-content">
+                                    <h3 class="item-name">Ayran (Küçük)</h3>
+                                    <p class="item-description">Küçük boy taze ayran</p>
+                                    <div class="item-footer">
+                                        <span class="item-price">7 TL</span>
+                                        <div class="quantity-controls" data-name="Ayran (Küçük)" data-price="7">
+                                            <button class="decrease-btn" aria-label="Azalt">-</button>
+                                            <span class="quantity-value">0</span>
+                                            <button class="increase-btn" aria-label="Arttır">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="menu-item" data-aos="fade-up" data-aos-delay="200">
+                                <div class="item-image">
+                                    <img src="images/salgam.jpg" alt="Şalgam" loading="lazy">
+                                </div>
+                                <div class="item-content">
+                                    <h3 class="item-name">Şalgam</h3>
+                                    <p class="item-description">Geleneksel şalgam suyu</p>
+                                    <div class="item-footer">
+                                        <span class="item-price">8 TL</span>
+                                        <div class="quantity-controls" data-name="Şalgam" data-price="8">
+                                            <button class="decrease-btn" aria-label="Azalt">-</button>
+                                            <span class="quantity-value">0</span>
+                                            <button class="increase-btn" aria-label="Arttır">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="menu-item" data-aos="fade-up" data-aos-delay="250">
+                                <div class="item-image">
+                                    <img src="images/kola.jpg" alt="Kola" loading="lazy">
+                                </div>
+                                <div class="item-content">
+                                    <h3 class="item-name">Kola</h3>
+                                    <p class="item-description">Soğuk kola</p>
+                                    <div class="item-footer">
+                                        <span class="item-price">10 TL</span>
+                                        <div class="quantity-controls" data-name="Kola" data-price="10">
+                                            <button class="decrease-btn" aria-label="Azalt">-</button>
+                                            <span class="quantity-value">0</span>
+                                            <button class="increase-btn" aria-label="Arttır">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="menu-item" data-aos="fade-up" data-aos-delay="300">
+                                <div class="item-image">
+                                    <img src="images/gazoz.jpg" alt="Gazoz" loading="lazy">
+                                </div>
+                                <div class="item-content">
+                                    <h3 class="item-name">Gazoz</h3>
+                                    <p class="item-description">Serinletici gazoz</p>
+                                    <div class="item-footer">
+                                        <span class="item-price">8 TL</span>
+                                        <div class="quantity-controls" data-name="Gazoz" data-price="8">
+                                            <button class="decrease-btn" aria-label="Azalt">-</button>
+                                            <span class="quantity-value">0</span>
+                                            <button class="increase-btn" aria-label="Arttır">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="menu-item" data-aos="fade-up" data-aos-delay="350">
+                                <div class="item-image">
+                                    <img src="images/portakal.jpg" alt="Portakallı Gazoz" loading="lazy">
+                                </div>
+                                <div class="item-content">
+                                    <h3 class="item-name">Portakallı Gazoz</h3>
+                                    <p class="item-description">Portakal aromalı gazoz</p>
+                                    <div class="item-footer">
+                                        <span class="item-price">9 TL</span>
+                                        <div class="quantity-controls" data-name="Portakallı Gazoz" data-price="9">
+                                            <button class="decrease-btn" aria-label="Azalt">-</button>
+                                            <span class="quantity-value">0</span>
+                                            <button class="increase-btn" aria-label="Arttır">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Desserts Section -->
+                    <section class="menu-section" data-aos="fade-up">
+                        <div class="section-header">
+                            <h2 class="section-title">🍰 Tatlılar</h2>
+                            <p class="section-subtitle">Tatlı son için</p>
+                        </div>
+                        <div class="menu-grid">
+                            <div class="menu-item" data-aos="fade-up" data-aos-delay="100">
+                                <div class="item-image">
+                                    <img src="images/kunefe.jpg" alt="Künefe" loading="lazy">
+                                    <div class="item-badge">Özel</div>
+                                </div>
+                                <div class="item-content">
+                                    <h3 class="item-name">Künefe</h3>
+                                    <p class="item-description">Geleneksel künefe tarifi ile hazırlanan özel tatlımız</p>
+                                    <div class="item-footer">
+                                        <span class="item-price">30 TL</span>
+                                        <div class="quantity-controls" data-name="Künefe" data-price="30">
+                                            <button class="decrease-btn" aria-label="Azalt">-</button>
+                                            <span class="quantity-value">0</span>
+                                            <button class="increase-btn" aria-label="Arttır">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- Cart Sidebar -->
+                <div class="cart-sidebar">
+                    <div class="cart-container">
+                        <div class="cart-header">
+                            <h3>🛒 Sepetiniz</h3>
+                            <span class="cart-count">0 ürün</span>
+                        </div>
+                        <div class="cart-content">
+                            <ul id="cart-items" class="cart-items"></ul>
+                            <div class="cart-empty" id="cart-empty">
+                                <p>Sepetiniz boş</p>
+                                <span>Lezzetli ürünlerimizi sepete ekleyin</span>
+                            </div>
+                        </div>
+                        <div class="cart-footer">
+                            <div class="cart-total">
+                                <span id="total-price">Toplam: 0 TL</span>
+                            </div>
+                            <button id="order-btn" class="order-btn" disabled>
+                                <span>📱</span>
+                                WhatsApp ile Sipariş Ver
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Nizamiye Pide ve Lahmacun</h3>
+                    <p>Geleneksel lezzetlerin modern sunumu</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="WhatsApp">📱</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Hızlı Linkler</h4>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="menu.html">Menü</a></li>
+                        <li><a href="gallery.html">Galeri</a></li>
+                        <li><a href="contact.html">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>İletişim</h4>
+                    <p>📍 Örnek Mah. Restoran Sok. No:1</p>
+                    <p>📞 +90 212 000 0000</p>
+                    <p>✉️ info@nizamiyepide.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Nizamiye Pide ve Lahmacun. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Yukarı çık">
+        ↑
+    </button>
+
+    <script src="new-script.js"></script>
+</body>
+</html>

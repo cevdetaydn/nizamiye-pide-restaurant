@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nizamiye Pide ve Lahmacun galeri - Restoranımızın fotoğrafları ve lezzetli yemeklerimizin görselleri.">
+    <meta name="keywords" content="restoran galeri, pide fotoğraf, lahmacun resim, yemek görselleri">
+    <title>Galeri - Nizamiye Pide ve Lahmacun</title>
+    <link rel="stylesheet" href="new-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loader"></div>
+        <p>Galeri yükleniyor...</p>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>NİZAMİYE PİDE VE LAHMACUN</h1>
+                <span class="tagline">Lezzetin Adresi</span>
+            </div>
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Ana Sayfa</a></li>
+                    <li><a href="menu.html" class="nav-link">Menü</a></li>
+                    <li><a href="gallery.html" class="nav-link active">Galeri</a></li>
+                    <li><a href="contact.html" class="nav-link">İletişim</a></li>
+                </ul>
+                <div class="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Gallery Hero -->
+    <section class="gallery-hero">
+        <div class="container">
+            <div class="gallery-hero-content">
+                <h1>Fotoğraf Galerimiz</h1>
+                <p>Restoranımızın atmosferi ve lezzetli yemeklerimizden kareler</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Content -->
+    <main class="gallery-main">
+        <div class="container">
+            <div class="gallery-grid" data-aos="fade-up">
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="images/galeri1.jpg" alt="Restoran İç Mekan" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Restoran İç Mekan</h3>
+                            <p>Sıcak ve samimi atmosferimiz</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="150">
+                    <img src="images/galeri2.jpg" alt="Lezzetli Yemekler" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Lezzetli Yemekler</h3>
+                            <p>Taze malzemelerle hazırlanan özel lezzetler</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="images/galeri3.jpg" alt="Mutfak Ekibimiz" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Mutfak Ekibimiz</h3>
+                            <p>Deneyimli şeflerimiz işbaşında</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="250">
+                    <img src="images/galeri4.jpg" alt="Özel Sunumlar" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Özel Sunumlar</h3>
+                            <p>Her detayda mükemmellik</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                    <img src="images/kasarli_pide.jpg" alt="Kaşarlı Pide" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Kaşarlı Pide</h3>
+                            <p>En popüler lezzetimiz</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="350">
+                    <img src="images/lahmacun.jpg" alt="Lahmacun" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Lahmacun</h3>
+                            <p>Geleneksel tarif ile hazırlanan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="400">
+                    <img src="images/kofte.jpg" alt="Köfte" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Köfte</h3>
+                            <p>Taze kıyma ile özel köftelerimiz</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="450">
+                    <img src="images/kunefe.jpg" alt="Künefe" class="gallery-image" loading="lazy">
+                    <div class="gallery-overlay">
+                        <div class="gallery-info">
+                            <h3>Künefe</h3>
+                            <p>Tatlı son için özel künefemiz</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery Stats -->
+            <section class="gallery-stats" data-aos="fade-up">
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-icon">📸</div>
+                        <div class="stat-number">500+</div>
+                        <div class="stat-label">Fotoğraf</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">⭐</div>
+                        <div class="stat-number">4.8</div>
+                        <div class="stat-label">Müşteri Puanı</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">👨‍🍳</div>
+                        <div class="stat-number">15</div>
+                        <div class="stat-label">Deneyimli Şef</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">🏆</div>
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Ödül</div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Image Modal -->
+    <div id="zoom-modal" class="zoom-modal">
+        <div class="modal-content">
+            <span class="close-zoom">&times;</span>
+            <img class="zoomed-image" id="zoomed-image" alt="">
+            <div class="modal-info">
+                <h3 id="modal-title"></h3>
+                <p id="modal-description"></p>
+            </div>
+            <div class="modal-navigation">
+                <button class="nav-btn prev-btn" id="prev-btn">‹</button>
+                <button class="nav-btn next-btn" id="next-btn">›</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Nizamiye Pide ve Lahmacun</h3>
+                    <p>Geleneksel lezzetlerin modern sunumu</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">📘</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                        <a href="#" aria-label="WhatsApp">📱</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Hızlı Linkler</h4>
+                    <ul>
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="menu.html">Menü</a></li>
+                        <li><a href="gallery.html">Galeri</a></li>
+                        <li><a href="contact.html">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>İletişim</h4>
+                    <p>📍 Örnek Mah. Restoran Sok. No:1</p>
+                    <p>📞 +90 212 000 0000</p>
+                    <p>✉️ info@nizamiyepide.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Nizamiye Pide ve Lahmacun. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Yukarı çık">
+        ↑
+    </button>
+
+    <script src="new-script.js"></script>
+</body>
+</html>
