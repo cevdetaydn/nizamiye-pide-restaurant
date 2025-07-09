@@ -1254,12 +1254,12 @@ body {
 @media (max-width: 768px) {
     .nav-list {
         position: fixed;
-        top: 70px;
+        top: 65px;
         left: 0;
         right: 0;
         background-color: var(--white);
         flex-direction: column;
-        padding: var(--spacing-3);
+        padding: var(--spacing-2);
         box-shadow: var(--shadow-lg);
         transform: translateY(-100%);
         opacity: 0;
@@ -1276,7 +1276,7 @@ body {
     }
     
     .nav-list li {
-        margin-bottom: var(--spacing-2);
+        margin-bottom: var(--spacing-1);
     }
     
     .nav-list li:last-child {
@@ -1284,11 +1284,11 @@ body {
     }
     
     .nav-link {
-        font-size: var(--font-size-base);
-        padding: var(--spacing-2) var(--spacing-3);
+        font-size: var(--font-size-sm);
+        padding: var(--spacing-1) var(--spacing-2);
         display: block;
         text-align: center;
-        border-radius: var(--radius);
+        border-radius: var(--radius-sm);
         transition: all var(--transition-fast);
     }
     
